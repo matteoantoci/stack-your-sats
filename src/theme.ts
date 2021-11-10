@@ -3,7 +3,7 @@ import { createTheme, SimplePaletteColorOptions } from '@mui/material/styles'
 const isDarkMode = typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches
 
 const BTC_COLOR: SimplePaletteColorOptions = {
-  main: '#f2a900',
+  main: '#f7931a',
 }
 
 const GAIN_COLOR: SimplePaletteColorOptions = {
