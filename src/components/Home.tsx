@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Stack, Typography } from '@mui/material'
+import { Link, Stack, Typography } from '@mui/material'
 import { Card } from './Card'
 import { Form } from './Form'
 import { Chart } from './Chart'
@@ -29,6 +29,15 @@ export const Home: FC = () => {
             <Form store={store} />
             <Chart store={store} />
           </Stack>
+          <Link
+            textAlign="right"
+            fontSize={theme.typography.body2.fontSize}
+            href="https://cointelegraph.com/news/bitcoin-s-compound-annual-growth-is-an-unheard-of-200-cagr"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            CAGRs source
+          </Link>
         </Card>
         <Quote />
       </Stack>

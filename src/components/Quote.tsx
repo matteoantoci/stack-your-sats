@@ -1,6 +1,6 @@
 import { theme } from '../theme'
 import React, { FC } from 'react'
-import { Box, Stack, styled, Typography } from '@mui/material'
+import { Box, Link, Stack, styled, Typography } from '@mui/material'
 
 const Wrapper = styled(Box)`
   width: 100%;
@@ -18,9 +18,13 @@ export const Quote: FC = () => (
         "My prediction is a 162% CAGR (non-inflation adjusted) for the next 5 years on #Bitcoin. Last 5 years was 244%."
       </Typography>
       <Typography variant="h6" component="p" textAlign="right" color={theme.palette.text.secondary}>
-        <a href="https://twitter.com/BritishHodl/status/1458019169744695296" target="_blank" rel="noopener noreferrer">
+        <Link
+          href="https://twitter.com/BritishHodl/status/1458019169744695296"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           ₿ritish Hodl
-        </a>
+        </Link>
       </Typography>
     </Wrapper>
   </Stack>
