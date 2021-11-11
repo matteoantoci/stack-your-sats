@@ -89,7 +89,7 @@ const createCustomTooltip =
   (currency: string): FC<TooltipProps<any, string>> =>
   ({ active, payload }) => {
     if (!active || !payload || !payload.length) return null
-    const { year, bitcoin } = payload[0].payload as ChartData
+    const { year } = payload[0].payload as ChartData
     return (
       <Paper variant="outlined">
         <List dense={true} subheader={<ListSubheader component="div">Year: {year}</ListSubheader>}>
