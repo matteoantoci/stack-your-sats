@@ -1,9 +1,10 @@
 import React, { FC } from 'react'
-import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, TooltipProps, XAxis, YAxis } from 'recharts'
 import { theme } from '../theme'
 import Big from 'big.js'
 import numeral from 'numeral'
 import { Store } from '../store'
+import { List, ListItem, ListItemText, ListSubheader, Paper } from '@mui/material'
 
 type ChartData = {
   year: string
@@ -64,6 +65,38 @@ const formatAxisValue = (value: number) => {
   return value > 1000000 ? formatted.toUpperCase() : formatted
 }
 
+const formatCurrency = (value: Big, currency: string) =>
+  new Intl.NumberFormat(navigator.language, {
+    style: 'currency',
+    currency,
+    maximumFractionDigits: 0,
+    currencyDisplay: 'narrowSymbol',
+  }).format(value.toNumber())
+
+const createCustomTooltip =
+  (currency: string): FC<TooltipProps<any, string>> =>
+  ({ active, payload }) => {
+    if (!active || !payload || !payload.length) return null
+    const { year, total } = payload[0].payload as ChartData
+    return (
+      <Paper variant="outlined">
+        <List dense={true} subheader={<ListSubheader component="div">Year: {year}</ListSubheader>}>
+          {payload.map((it) => (
+            <ListItem key={it.name}>
+              <ListItemText
+                primary={`${it.name}: ${formatCurrency(it.value, currency)}`}
+                primaryTypographyProps={{ color: it.color }}
+              />
+            </ListItem>
+          ))}
+          <ListItem>
+            <ListItemText primary={`Total: ${formatCurrency(total, currency)}`} />
+          </ListItem>
+        </List>
+      </Paper>
+    )
+  }
+
 type Props = {
   store: Store
 }
@@ -76,22 +109,7 @@ export const Chart: FC<Props> = ({ store }) => {
         <CartesianGrid opacity={0.3} />
         <XAxis dataKey="year" tick={{ fontSize: FONT_SIZE }} />
         <YAxis tickFormatter={formatAxisValue} tick={{ fontSize: FONT_SIZE }} />
-        <Tooltip
-          formatter={(value: number) =>
-            new Intl.NumberFormat(navigator.language, {
-              style: 'currency',
-              currency: store.currency.value,
-              maximumFractionDigits: 0,
-              currencyDisplay: 'narrowSymbol',
-            }).format(value)
-          }
-          contentStyle={{
-            color: theme.palette.text.primary,
-            backgroundColor: theme.palette.background.default,
-            fontSize: FONT_SIZE,
-            borderRadius: `${theme.shape.borderRadius}px`,
-          }}
-        />
+        <Tooltip content={createCustomTooltip(store.currency.value)} />
         <Bar dataKey="contributions" stackId="a" fill={theme.palette.success.main} name="Contributions" />
         <Bar dataKey="growth" stackId="a" fill={theme.palette.primary.main} name="Growth" />
       </BarChart>
