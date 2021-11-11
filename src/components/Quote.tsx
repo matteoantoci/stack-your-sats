@@ -1,10 +1,19 @@
 import { theme } from '../theme'
 import React, { FC } from 'react'
-import { Box, Stack, Typography } from '@mui/material'
+import { Box, Stack, styled, Typography } from '@mui/material'
+
+const Wrapper = styled(Box)`
+  width: 100%;
+  padding: 0 ${theme.spacing(3)};
+
+  @media (min-width: 420px) {
+    width: 50%;
+  }
+`
 
 export const Quote: FC = () => (
   <Stack direction="row" justifyContent="center">
-    <Box width="50%">
+    <Wrapper>
       <Typography variant="h6" component="p" textAlign="center" fontStyle="italic" color={theme.palette.text.secondary}>
         "My prediction is a 162% CAGR (non-inflation adjusted) for the next 5 years on #Bitcoin. Last 5 years was 244%."
       </Typography>
@@ -13,6 +22,6 @@ export const Quote: FC = () => (
           ₿ritish Hodl
         </a>
       </Typography>
-    </Box>
+    </Wrapper>
   </Stack>
 )

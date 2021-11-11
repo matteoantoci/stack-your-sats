@@ -14,6 +14,7 @@ export const CurrencySelector: FC<Props> = ({ value, onChange }) => (
     label="Currency"
     value={value}
     size="small"
+    fullWidth={true}
     onChange={(e) => {
       const selectedIndex = CURRENCIES.findIndex((it) => it.value === e.target.value) ?? 0
       onChange(CURRENCIES[selectedIndex])

@@ -14,11 +14,12 @@ const toInt = (value: string) => {
 }
 
 export const Input: FC<Props> = ({ id, label, value, adornment, onChange }) => (
-  <FormControl>
+  <FormControl fullWidth={true}>
     <InputLabel htmlFor={id}>{label}</InputLabel>
     <OutlinedInput
       id={id}
       value={value}
+      fullWidth={true}
       onChange={(e) => onChange(toInt(e.target.value))}
       startAdornment={adornment ? <InputAdornment position="start">{adornment}</InputAdornment> : null}
       label={label}
