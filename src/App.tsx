@@ -5,8 +5,7 @@ import { theme } from './theme'
 import { Container, CssBaseline, styled } from '@mui/material'
 
 const Main = styled('main')`
-  padding-top: ${theme.spacing(3)};
-  padding-bottom: ${theme.spacing(3)};
+  padding: ${theme.spacing(6)} 0;
 `
 
 const App = () => (
