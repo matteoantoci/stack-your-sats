@@ -6,19 +6,9 @@ const BTC_COLOR: SimplePaletteColorOptions = {
   main: '#f7931a',
 }
 
-const GAIN_COLOR: SimplePaletteColorOptions = {
-  main: '#53b987',
-}
-
-const LOSS_COLOR: SimplePaletteColorOptions = {
-  main: '#eb4d5c',
-}
-
 export const theme = createTheme({
   palette: {
     mode: isDarkMode ? 'dark' : 'light',
-    success: GAIN_COLOR,
-    error: LOSS_COLOR,
     primary: BTC_COLOR,
   },
   typography: {

@@ -12,24 +12,24 @@ export const Form: FC<Props> = ({ store }) => {
   const currencyLabel = store.currency.label
   return (
     <Grid container spacing={3}>
-      <Grid item xs={12} md={4}>
+      <Grid item xs={12} md={2}>
         <CurrencySelector value={store.currency.value} onChange={store.onCurrencyChange} />
       </Grid>
-      <Grid item xs={6} md={2}>
+      <Grid item xs={12} md={3}>
         <Input
           id="initial-balance"
           value={store.startingAmount}
           onChange={store.onStartingAmountChange}
-          adornment={currencyLabel}
+          startAdornment={currencyLabel}
           label="Initial balance"
         />
       </Grid>
-      <Grid item xs={6} md={2}>
+      <Grid item xs={12} md={3}>
         <Input
           id="monthly-contribution"
           value={store.monthlyContribution}
           onChange={store.onMonthlyContributionChange}
-          adornment={currencyLabel}
+          startAdornment={currencyLabel}
           label="Monthly contribution"
         />
       </Grid>
@@ -38,7 +38,7 @@ export const Form: FC<Props> = ({ store }) => {
           id="rate"
           value={store.rate}
           onChange={store.onRateChange}
-          adornment={currencyLabel}
+          startAdornment="%"
           label="Est. Bitcoin CAGR"
         />
       </Grid>
