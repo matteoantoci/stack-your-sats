@@ -79,9 +79,10 @@ export const Home: FC = () => {
                 fontSize={theme.typography.body2.fontSize}
                 href="https://cointelegraph.com/news/bitcoin-s-compound-annual-growth-is-an-unheard-of-200-cagr"
                 target="_blank"
+                display={'block'}
                 rel="noopener noreferrer"
               >
-                CAGRs source
+                Source
               </Link>
             </Card>
           </Grid>

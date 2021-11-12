@@ -19,7 +19,8 @@ const createCustomTooltip =
           {payload.map((it) => (
             <ListItem key={it.name}>
               <ListItemText
-                primary={`${it.name}: ${formatCurrency(it.value, currency)}`}
+                primary={it.name}
+                secondary={formatCurrency(it.value, currency)}
                 primaryTypographyProps={{ color: it.color }}
               />
             </ListItem>
@@ -49,20 +50,20 @@ export const LineChart: FC<Props> = ({ data, currency, btcRate }) => {
           tick={{ fontSize: FONT_SIZE }}
         />
         <Tooltip content={createCustomTooltip(currency)} />
-        <Line type="monotone" dataKey="gold" strokeWidth={2} name={`Gold - ${GOLD_RATE}% CAGR`} stroke={amber[500]} />
+        <Line type="monotone" dataKey="gold" strokeWidth={2} name={`Gold (${GOLD_RATE}% CAGR)`} stroke={amber[500]} />
         <Line
           type="monotone"
           dataKey="sAndP"
           strokeWidth={2}
-          name={`S&P 500 - ${S_AND_P_RATE}% CAGR`}
+          name={`S&P 500 (${S_AND_P_RATE}% CAGR)`}
           stroke={green[500]}
         />
-        <Line type="monotone" dataKey="tesla" strokeWidth={2} name={`Tesla - ${TESLA_RATE}% CAGR`} stroke={cyan[500]} />
+        <Line type="monotone" dataKey="tesla" strokeWidth={2} name={`Tesla (${TESLA_RATE}% CAGR)`} stroke={cyan[500]} />
         <Line
           dataKey="bitcoin"
           type="monotone"
           strokeWidth={4}
-          name={`Bitcoin - ${btcRate}% CAGR`}
+          name={`Bitcoin (${btcRate}%)`}
           stroke={theme.palette.primary.main}
         />
       </ComposedChart>

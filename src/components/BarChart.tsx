@@ -19,13 +19,14 @@ const createCustomTooltip =
           {payload.map((it) => (
             <ListItem key={it.name}>
               <ListItemText
-                primary={`${it.name}: ${formatCurrency(it.value, currency)}`}
+                primary={it.name}
+                secondary={formatCurrency(it.value, currency)}
                 primaryTypographyProps={{ color: it.color }}
               />
             </ListItem>
           ))}
           <ListItem>
-            <ListItemText primary={`Total: ${formatCurrency(bitcoin, currency)}`} />
+            <ListItemText primary="Total" secondary={formatCurrency(bitcoin, currency)} />
           </ListItem>
         </List>
       </Paper>
