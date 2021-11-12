@@ -34,7 +34,11 @@ export const Home: FC = () => {
                 color={theme.palette.text.secondary}
                 marginBottom={theme.spacing(3)}
               >
-                See how your money will grow over time with compound annual growth rate (CAGR).
+                See how your money will grow over time with{' '}
+                <Box component={'span'} color={theme.palette.primary.main}>
+                  Bitcoin
+                </Box>{' '}
+                compound annual growth rate (CAGR).
               </Typography>
               <Form store={store} />
             </Card>
@@ -53,7 +57,7 @@ export const Home: FC = () => {
                 </Box>{' '}
                 your investment will be worth{' '}
                 <Box component={'span'} color={theme.palette.primary.main}>
-                  ${formatCurrency(last.bitcoin, currency)}
+                  {formatCurrency(last.bitcoin, currency)}
                 </Box>
               </Typography>
               <BarChart data={data} currency={currency} />
