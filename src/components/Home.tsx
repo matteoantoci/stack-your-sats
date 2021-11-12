@@ -38,7 +38,7 @@ export const Home: FC = () => {
                 <Box component={'span'} color={theme.palette.primary.main}>
                   Bitcoin
                 </Box>{' '}
-                compound annual growth rate (CAGR).
+                compound annual growth rate (CAGR)
               </Typography>
               <Form store={store} />
             </Card>
@@ -47,7 +47,7 @@ export const Home: FC = () => {
             <Card variant="outlined">
               <Typography
                 variant={'h6'}
-                component={'h2'}
+                component={'h3'}
                 color={theme.palette.text.secondary}
                 marginBottom={theme.spacing(3)}
               >
@@ -67,7 +67,7 @@ export const Home: FC = () => {
             <Card variant="outlined">
               <Typography
                 variant={'h6'}
-                component={'h2'}
+                component={'h3'}
                 color={theme.palette.text.secondary}
                 marginBottom={theme.spacing(3)}
               >
